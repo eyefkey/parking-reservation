@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Reservation {
+  id: ID!
+  name: String!
+  licensePlate: String!
+  driversLicenseCode: String!
+  phoneNumber: String!
+  reservationCode: String!
+  parkingSection: String!
+  slotNumber: Float!
+  approved: Boolean!
+}
+
+type PublicReservation {
+  reservationCode: String!
+  approved: Boolean!
+  parkingSection: String!
+  slotNumber: Float!
+}
+
+type AvailableSlot {
+  section: String!
+  slot: Float!
+}
+
+type Query {
+  reservations: [Reservation!]!
+  publicReservations: [PublicReservation!]!
+  availableSlots: [AvailableSlot!]!
+}
+
+type Mutation {
+  createReservation(input: CreateReservationInput!): Reservation!
+  updateReservation(input: UpdateReservationInput!): Reservation!
+}
+
+input CreateReservationInput {
+  name: String!
+  licensePlate: String!
+  driversLicenseCode: String!
+  phoneNumber: String!
+  parkingSection: String!
+  slotNumber: Float!
+}
+
+input UpdateReservationInput {
+  id: ID!
+  name: String
+  licensePlate: String
+  driversLicenseCode: String
+  phoneNumber: String
+  parkingSection: String
+  slotNumber: Float
+  approved: Boolean
+}
